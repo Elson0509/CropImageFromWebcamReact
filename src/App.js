@@ -5,8 +5,6 @@ function App() {
   const [playing, setPlaying] = useState(false)
   const [imgPath, setImgPath] = useState('')
   const [isCropping, setIsCropping] = useState(false)
-  const [newImgPath, setNewImgPath] = useState('')
-  const [myBlob, setMyBlob] = useState(null)
   const [newImgPathBase64, setNewImgPathBase64] = useState('')
   const [crop, setCrop] = useState({ width: 300, height: 400 });
 
@@ -77,11 +75,6 @@ const onCropChange = (crop) => {
   );
 
   setNewImgPathBase64(canvas.toDataURL("image/jpeg"))
-
-  canvas.toBlob((blob) => {
-      setNewImgPath(URL.createObjectURL(blob))
-      setMyBlob(blob)
-  }, 'image/jpeg', 0.95);
 }
 
   return (
