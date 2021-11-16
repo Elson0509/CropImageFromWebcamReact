@@ -11,6 +11,11 @@ function App() {
   const HEIGHT = 400;
   const WIDTH = HEIGHT / 4 * 3;
 
+  navigator.getUserMedia = ( navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia);
+
   const startVideo = _ =>{
     setIsCropping(false)
     setImgPath('')
@@ -134,8 +139,6 @@ const onCropChange = (crop) => {
               src={imgPath} 
               crop={crop}
               ruleOfThirds
-              //onChange={onCropChange}
-              //onImageLoaded={onImageLoaded}
               onComplete={onCropChange}
               onChange={newCrop => setCrop(newCrop)}
             />
